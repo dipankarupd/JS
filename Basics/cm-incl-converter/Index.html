@@ -1,0 +1,87 @@
+<html>
+    <head title="Cm-Inch converter">
+        <style>
+            .input-container {
+                text-align: center;
+                padding-top: 40px;
+            }
+            .input {
+                border-width: 1px;
+                border-style: solid;
+                border-color: gray;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+                height: 8px;
+                width: 240px;
+                border-radius: 20px;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .buttons {
+
+                width: 250px;
+                padding: 15px;
+                border-radius: 18px;
+                background-color: #00593b;
+                color: white;
+                font-size: 17px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .result {
+                font-size: 19px;
+                font-weight: bold;
+                text-align: center;
+                padding-top: 20px;
+            }
+        </style>
+    </head>
+
+    <body bgcolor="cyan">
+        <h1 align="center">
+            Converter
+        </h1>
+
+        <div>
+            <div class="input-container">
+                <input type="text" class="input" placeholder="Enter the value" id="value">
+            </div>
+    
+            <div class="input-container">
+                <button id="cm_btn" class="buttons" onclick="inchToCm()">Centimeters</button>
+                <button id="in_btn" class="buttons" onclick="cmToInch()">Intches</button>
+            </div>
+        </div>
+        <p class="result">
+            The converted value is: <u id="res">0.00</u>
+        </p>
+
+
+        <script>
+
+            let container = document.getElementById("value")
+            let input = +container.value
+            let result = 1.0
+            
+            function inchToCm() {
+                result = input * 2.54
+                displayResult()
+            }
+
+            function cmToInch() {
+                result = input / 2.54
+                displayResult()
+            }
+
+            function displayResult() {
+                let ans = document.getElementById("res")
+                ans.innerHTML = ''
+                ans.innerText = result.toFixed(2)
+                ans.appendChild(result)
+
+                result = 1.00
+            }
+        </script>
+    </body>
+</html>

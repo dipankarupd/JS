@@ -1,0 +1,71 @@
+fetch, promices settimeout in js is used to send the req to the api...writing the 
+async code
+
+the result from these will be caught...ans will be saved in :
+then catch, callbacks, async await
+
+
+callbacks:
+-> always a function
+-> yo async code complete vayepaxi matra chalxa
+eg: 
+settimeout(function(){}, 10000) yaa function jaba 10 sec complete hunxa taba
+matra chalxa... vaneko async ko time sakkepaxi balla chalirako xa.
+function() is callback function
+
+async code lekhna ko lagi:
+fetch
+XMLHttpRequest
+axios
+promises
+settimeout
+setinterval
+
+... async code side stack ma gayera basxa. side stack ko sabai kura haru
+    main stack ma vako sabai execute vaisakepaxi balla run hunxa.
+
+async code chalauna lai 
+callbacks
+then catch
+async await
+
+
+promises: 
+-> kunai event xa re, teslai afno promise vanam.. eg maile voli X lai 
+treat dinxu... yo promise vayo...yesko 2 ota result huna sakxa
+1. maile promise pura gare -> resolve
+2. maile promise pura garina -> reject
+
+so promise can be in 3 states: 
+pending, resolve ra reject 
+
+yedi resolve state ma gayo vane 'then' use garne
+reject state ma gayo vane 'catch' use garne
+
+promise ko eg ma hera..
+
+
+
+ASYNC AWAIT:
+
+async await vaneko promises ko alternative jasari kaam garxa. Hamle jaba promises
+use garxam teti bela then lagaunu parxa ani halka code laamo hune garxa
+tyo baata bachna ko lagi hami async await use garxam which will make it 
+easier
+eg: 
+
+function xyz() {
+    fetch() // async code lekheko..
+
+}
+
+yesari kunai function ma async code lekheko xa vane tyo async code vsko nearest
+function ma async lagaune ani tyo async code vako thau ma await lagaune
+so..
+
+async function xyz() {
+   await fetch() // async code lekheko..
+
+}
+
+eg code hera...

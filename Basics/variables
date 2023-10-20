@@ -1,0 +1,14 @@
+const val1 = 10;
+const val2 = 20.54;
+const val3 = "Dipanakar";
+const val4 = {
+    valType: "Object",
+    valName: "Random Name"
+};
+
+const val5 = (function() {
+    return "Hello, I am ";
+})
+
+const val6 = val5() + val3;
+console.log(val6);

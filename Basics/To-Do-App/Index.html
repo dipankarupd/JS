@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <input type="text" placeholder="add new To-do" id="new_to_do">
+    <input type="date" id="due-date">
+    <button onclick="addToDoToList()">Add</button>
+    <div id="to-do-holder"></div>
+
+    <script>
+        let toDoList = [
+            {
+                title: 'Eat',
+                dueDate: '2023-03-20',
+                id: 'id1'
+            }
+        ]
+
+        updateTodo()
+
+        function addToDoToList() {
+
+            const inputTodo= document.getElementById("new_to_do")
+            const title = inputTodo.value
+
+            const inputDate = document.getElementById('due-date')
+            const dueDate = inputDate.value
+            const id = '' + new Date().getTime()
+            toDoList.push(
+                {
+                    title: title,
+                    dueDate: dueDate,
+                    id: id
+                }
+            )
+            updateTodo()
+        }
+
+        function updateTodo() {
+
+            const toDoContainer = document.getElementById("to-do-holder")
+            toDoContainer.innerHTML = ''
+
+            toDoList.forEach(function (toDo) {
+            let todo = document.createElement('div')
+            todo.style = 'padding: 5px'
+            todo.innerText = toDo.title + ' ' + toDo.dueDate
+
+            // creating a delete button: 
+            const deleteButton = document.createElement('Button')
+            deleteButton.innerText = 'Delete'
+            deleteButton.style = 'margin-left: 10px'
+            deleteButton.id = toDo.id
+            deleteButton.onclick = deleteNote
+
+            todo.appendChild(deleteButton)
+            toDoContainer.appendChild(todo)
+        })
+        }
+
+        function deleteNote(event) {
+
+            // getting the button that is clicked: 
+            let button = event.target
+            let idToDelete = button.id
+
+            toDoList = toDoList.filter(
+
+                function removeElement(todo) {
+
+                    if(todo.id === idToDelete){
+                        return false
+                    }
+                    else{
+                        return true
+                    } 
+                }
+            );
+            updateTodo()
+        }
+    </script>
+</body>
+
+</html>
